@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumerologiaCabalistica.WebApi", "NumerologiaCabalistica\NumerologiaCabalistica.WebApi.csproj", "{FDC0CCCD-083E-4D67-8788-4FBA1DAE64FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumerologiaCabalistica.Service", "NumerologiaCabalistica.Service\NumerologiaCabalistica.Service.csproj", "{FDF2F157-9F9E-4F41-B253-FD8E73BCBE39}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumerologiaCabalistica.Repository", "NumerologiaCabalistica.Repository\NumerologiaCabalistica.Repository.csproj", "{817FD686-BE94-4438-A320-4C05C0FF7D75}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDC0CCCD-083E-4D67-8788-4FBA1DAE64FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDC0CCCD-083E-4D67-8788-4FBA1DAE64FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDC0CCCD-083E-4D67-8788-4FBA1DAE64FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDC0CCCD-083E-4D67-8788-4FBA1DAE64FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDF2F157-9F9E-4F41-B253-FD8E73BCBE39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDF2F157-9F9E-4F41-B253-FD8E73BCBE39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDF2F157-9F9E-4F41-B253-FD8E73BCBE39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDF2F157-9F9E-4F41-B253-FD8E73BCBE39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{817FD686-BE94-4438-A320-4C05C0FF7D75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{817FD686-BE94-4438-A320-4C05C0FF7D75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{817FD686-BE94-4438-A320-4C05C0FF7D75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{817FD686-BE94-4438-A320-4C05C0FF7D75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B55AE0C-88C6-498C-9A78-85D3099CFE4A}
+	EndGlobalSection
+EndGlobal
