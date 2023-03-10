@@ -5,7 +5,7 @@ namespace NumerologiaCabalistica.Repository
 {
 	public class CommandRepository
 	{
-		string databaseURL = Environment.GetEnvironmentVariable("DATABASE_URL");
+		string databaseURL = Environment.GetEnvironmentVariable("MYSQL_URL");
 		string connectionString = "server=localhost;database=numerologiacabalistica;uid=root;pwd=Admin@123";
 		public List<Customer> GetCustomers()
 		{
