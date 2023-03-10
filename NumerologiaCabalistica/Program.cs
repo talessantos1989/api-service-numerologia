@@ -8,7 +8,8 @@ using NumerologiaCabalistica.Service;
 var builder = WebApplication.CreateBuilder(args);
 
 
-var connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
+//var connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
+var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
 
 
 //Adiciona o entity framework na aplicação

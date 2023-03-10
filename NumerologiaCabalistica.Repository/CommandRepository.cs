@@ -1,16 +1,21 @@
 ﻿using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Tls;
 
 namespace NumerologiaCabalistica.Repository
 {
 	public class CommandRepository
 	{
+		string databaseURL = Environment.GetEnvironmentVariable("DATABASE_URL");
+		string connectionString = "server=localhost;database=numerologiacabalistica;uid=root;pwd=Admin@123";
 		public List<Customer> GetCustomers()
 		{
+			string connectionString = GetConnectionString();
+
 			List<Customer> customers = new List<Customer>();
 			DateTime dataDeHoje = DateTime.Now.Date;
 			try
 			{
-				using (MySqlConnection conn = new MySqlConnection("server=containers-us-west-194.railway.app;database=numerologiacabalistica;uid=root;pwd=zDost56iJufiZOFYhrJX"))
+				using (MySqlConnection conn = new MySqlConnection(connectionString))
 				{
 					conn.Open();
 					MySqlCommand command = new MySqlCommand($"SELECT id_cliente, nome, email, telefone, data_compra, data_nascimento, codigo_transacao from CLIENTES where " +
@@ -44,11 +49,32 @@ namespace NumerologiaCabalistica.Repository
 			return customers;
 		}
 
+		private string GetConnectionString()
+		{
+			return string.IsNullOrEmpty(databaseURL) ? connectionString : BuildConnectionString(databaseURL);
+		}
+
+		private string BuildConnectionString(string databaseURL)
+		{
+			var databaseUri = new Uri(databaseURL);
+			var userInfo = databaseUri.UserInfo.Split(':');
+			var builder = new MySqlConnectionStringBuilder
+			{
+				Server = databaseUri.Host,
+				Port = Convert.ToUInt32(databaseUri.Port),
+				UserID = userInfo[0],
+				Password = userInfo[1],
+				Database = databaseUri.LocalPath.TrimStart('/'),
+				SslMode = MySqlSslMode.Required
+			};
+			return builder.ToString();
+		}
+
 		public void SaveSendMap(int id)
 		{
 			try
 			{
-				using (MySqlConnection conn = new MySqlConnection("server=localhost;database=numerologiacabalistica;uid=root;pwd=Admin@123"))
+				using (MySqlConnection conn = new MySqlConnection(GetConnectionString()))
 				{
 					conn.Open();
 					MySqlCommand command = new MySqlCommand($"UPDATE clientes SET enviado = 1 where id_cliente = @id_cliente", conn);
@@ -59,7 +85,7 @@ namespace NumerologiaCabalistica.Repository
 			}
 			catch (Exception ex)
 			{
-                throw new Exception(ex.Message);
+				throw new Exception(ex.Message);
 			}
 		}
 	}
