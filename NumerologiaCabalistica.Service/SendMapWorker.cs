@@ -17,7 +17,7 @@ namespace NumerologiaCabalistica.Service
         {
             _logger.LogInformation($"Timed Hosted Service Runnig {typeof(SendMapWorker)}");
 
-            _timer = new Timer(DoWork, null, TimeSpan.Zero, TimeSpan.FromSeconds(60));
+            _timer = new Timer(DoWork, null, TimeSpan.Zero, TimeSpan.FromSeconds(86400));
 
             return Task.CompletedTask;
         }
