@@ -16,6 +16,7 @@ namespace NumerologiaCabalistica.Service
 
             using (var client = new HttpClient())
             {
+                //TODO: arrumar isso aqui
                 client.BaseAddress = new System.Uri("http://localhost:5278/api/CalculoCabalistico");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));

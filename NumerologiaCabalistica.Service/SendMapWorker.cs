@@ -33,16 +33,23 @@ namespace NumerologiaCabalistica.Service
         {
             _logger.LogInformation("Time hosted service is working");
 
-            CommandRepository repository = new CommandRepository();
-            List<Customer> customers =  repository.GetCustomers();
-            foreach (Customer customer in customers)
+            try
             {
-                await APIService.SendAPI(customer);
-                if (customer.MapFile != null)
+                CommandRepository repository = new CommandRepository();
+                List<Customer> customers = repository.GetCustomers();
+                foreach (Customer customer in customers)
                 {
-                    ServiceMessenger.SendMail(customer);
-                    repository.SaveSendMap(customer.Id);
+                    await APIService.SendAPI(customer);
+                    if (customer.MapFile != null)
+                    {
+                        ServiceMessenger.SendMail(customer);
+                        repository.SaveSendMap(customer.Id);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
             }
         }
     }

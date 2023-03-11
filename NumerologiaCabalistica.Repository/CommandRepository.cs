@@ -1,13 +1,14 @@
-﻿using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Tls;
+﻿using Microsoft.Extensions.Logging;
+using MySql.Data.MySqlClient;
 
 namespace NumerologiaCabalistica.Repository
 {
 	public class CommandRepository
 	{
-		string databaseURL = Environment.GetEnvironmentVariable("MYSQL_URL");
-		string connectionString = "server=localhost;database=numerologiacabalistica;uid=root;pwd=Admin@123";
-		public List<Customer> GetCustomers()
+        string databaseURL = Environment.GetEnvironmentVariable("MYSQL_URL");
+        string connectionString = "server=localhost;database=numerologiacabalistica;uid=root;pwd=Admin@123";
+
+        public List<Customer> GetCustomers()
 		{
 			string connectionString = GetConnectionString();
 
