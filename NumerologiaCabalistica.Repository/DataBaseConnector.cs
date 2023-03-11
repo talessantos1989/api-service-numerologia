@@ -36,7 +36,6 @@ namespace NumerologiaCabalistica.Repository
                 Database = databaseUri.LocalPath.TrimStart('/'),
                 SslMode = MySqlSslMode.Required
             };
-            Console.WriteLine(builder.ToString());
             return builder.ToString();
         }
     }
