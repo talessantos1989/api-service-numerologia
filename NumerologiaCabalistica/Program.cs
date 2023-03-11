@@ -3,13 +3,16 @@ using Microsoft.EntityFrameworkCore;
 using NumerologiaCabalistica.Calculos;
 using NumerologiaCabalistica.Calculos.Interfaces;
 using NumerologiaCabalistica.Data;
+using NumerologiaCabalistica.Repository;
 using NumerologiaCabalistica.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-//var connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
-var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
+var connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
+var databaseURl = Environment.GetEnvironmentVariable("DATABASE_URL");
+
+var connection = string.IsNullOrEmpty(databaseURl) ? connectionString : DataBaseConnector.GetConnectionString(databaseURl);
 
 
 //Adiciona o entity framework na aplicação

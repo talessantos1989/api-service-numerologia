@@ -5,12 +5,11 @@ namespace NumerologiaCabalistica.Repository
 {
 	public class CommandRepository
 	{
-        string databaseURL = Environment.GetEnvironmentVariable("MYSQL_URL");
-        string connectionString = "server=localhost;database=numerologiacabalistica;uid=root;pwd=Admin@123";
+       
 
         public List<Customer> GetCustomers()
 		{
-			string connectionString = GetConnectionString();
+			string connectionString = DataBaseConnector.GetConnectionString();
 
 			List<Customer> customers = new List<Customer>();
 			DateTime dataDeHoje = DateTime.Now.Date;
@@ -50,32 +49,13 @@ namespace NumerologiaCabalistica.Repository
 			return customers;
 		}
 
-		private string GetConnectionString()
-		{
-			return string.IsNullOrEmpty(databaseURL) ? connectionString : BuildConnectionString(databaseURL);
-		}
-
-		private string BuildConnectionString(string databaseURL)
-		{
-			var databaseUri = new Uri(databaseURL);
-			var userInfo = databaseUri.UserInfo.Split(':');
-			var builder = new MySqlConnectionStringBuilder
-			{
-				Server = databaseUri.Host,
-				Port = Convert.ToUInt32(databaseUri.Port),
-				UserID = userInfo[0],
-				Password = userInfo[1],
-				Database = databaseUri.LocalPath.TrimStart('/'),
-				SslMode = MySqlSslMode.Required
-			};
-			return builder.ToString();
-		}
+		
 
 		public void SaveSendMap(int id)
 		{
 			try
 			{
-				using (MySqlConnection conn = new MySqlConnection(GetConnectionString()))
+				using (MySqlConnection conn = new MySqlConnection(DataBaseConnector.GetConnectionString()))
 				{
 					conn.Open();
 					MySqlCommand command = new MySqlCommand($"UPDATE clientes SET enviado = 1 where id_cliente = @id_cliente", conn);
