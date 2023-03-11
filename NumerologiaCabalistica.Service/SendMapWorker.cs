@@ -8,7 +8,7 @@ namespace NumerologiaCabalistica.Service
     public class SendMapWorker : IHostedService
     {
         private Timer? _timer = null;
-        private readonly ILogger<SendMapWorker> _logger;
+        private readonly ILogger<SendMapWorker> _logger;    
         public SendMapWorker(ILogger<SendMapWorker> logger)
         {
             _logger = logger;
@@ -37,6 +37,7 @@ namespace NumerologiaCabalistica.Service
             {
                 CommandRepository repository = new CommandRepository();
                 List<Customer> customers = repository.GetCustomers();
+                _logger.LogInformation($"{customers.Count} customers");
                 foreach (Customer customer in customers)
                 {
                     await APIService.SendAPI(customer);
