@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 var connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
-var databaseURl = Environment.GetEnvironmentVariable("DATABASE_URL");
+var databaseURl = Environment.GetEnvironmentVariable("MYSQL_URL");
 
 var connection = string.IsNullOrEmpty(databaseURl) ? connectionString : DataBaseConnector.GetConnectionString(databaseURl);
 
