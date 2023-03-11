@@ -35,18 +35,15 @@ namespace NumerologiaCabalistica.PDF
                     //String CAPA = "capa.png";
                     //PdfCanvas canvasCapa = new PdfCanvas(pdfDocumento.AddNewPage());
                     //canvasCapa.AddImageFittedIntoRectangle(ImageDataFactory.Create(CAPA), PageSize.A4, false);
-                    //#endregion
+                    #endregion
 
 
                     #region Contracapa
                     //PdfCanvas contracapa = new PdfCanvas(pdfDocumento.AddNewPage()); //adiciono nova pagina
                     //String CONTRACAPA = "contra_capa.png";
                     //contracapa.AddImageFittedIntoRectangle(ImageDataFactory.Create(CONTRACAPA), PageSize.A4, false);
-                    //document.Add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+                    document.Add(new AreaBreak(AreaBreakType.NEXT_PAGE));
 
-                    //PdfFont fonteFancy = PdfFontFactory.CreateFont(@"C:\\Windows\\Fonts\\Rage Italic.ttf");
-                    //Paragraph nomeConsulente = new Paragraph(nomeCompleto).SetTextAlignment(TextAlignment.CENTER).SetMarginTop(430F).SetFont(fonteFancy).SetFontSize(20F);
-                    //document.Add(nomeConsulente);
 
                     #endregion
 
