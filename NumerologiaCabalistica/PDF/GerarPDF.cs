@@ -37,7 +37,6 @@ namespace NumerologiaCabalistica.PDF
                     //canvasCapa.AddImageFittedIntoRectangle(ImageDataFactory.Create(CAPA), PageSize.A4, false);
                     #endregion
 
-
                     #region Contracapa
                     //PdfCanvas contracapa = new PdfCanvas(pdfDocumento.AddNewPage()); //adiciono nova pagina
                     //String CONTRACAPA = "contra_capa.png";
