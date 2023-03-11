@@ -17,7 +17,7 @@ var connection = string.IsNullOrEmpty(databaseURl) ? connectionString : DataBase
 
 //Adiciona o entity framework na aplicação
 builder.Services.AddDbContext<NumerologiaCabalisticaDbContext>(
-    opts => opts.UseLazyLoadingProxies().UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+    opts => opts.UseLazyLoadingProxies().UseMySql(connection, ServerVersion.AutoDetect(connection)));
 
 // Add services to the container.
 
