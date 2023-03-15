@@ -5,8 +5,6 @@ namespace NumerologiaCabalistica.Repository
 {
 	public class CommandRepository
 	{
-       
-
         public List<Customer> GetCustomers()
 		{
 			string connectionString = DataBaseConnector.GetConnectionString();
