@@ -43,7 +43,7 @@ namespace NumerologiaCabalistica.Repository
 					}
 				}
 			}
-			catch (Exception ex)
+			catch (MySqlException ex)
 			{
 				throw new Exception(ex.Message);
 			}
