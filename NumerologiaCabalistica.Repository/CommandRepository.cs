@@ -16,14 +16,13 @@ namespace NumerologiaCabalistica.Repository
 				using (MySqlConnection conn = new MySqlConnection(connectionString))
 				{
 					conn.Open();
-					Console.WriteLine("conexao sucesso");
 
 					MySqlCommand command = new MySqlCommand($"SELECT id_cliente, nome, email, telefone, data_compra, data_nascimento, codigo_transacao from clientes where " +
 						$"enviado = @enviado and data_compra < @dataDeHoje", conn);
 
 					command.Parameters.AddWithValue("@enviado", 0);
 					command.Parameters.AddWithValue("@dataDeHoje", dataDeHoje);
-
+					Console.WriteLine(command);
 					using (var reader = command.ExecuteReader())
 					{
 						while (reader.Read())
