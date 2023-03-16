@@ -8,7 +8,7 @@ namespace NumerologiaCabalistica.Repository
         public static string GetConnectionString()
         {
             string databaseURL = Environment.GetEnvironmentVariable("MYSQL_URL");
-            string connectionString = "server=sql725.main-hosting.eu;database=u317257256_numerologia;uid=u317257256_root;pwd=Admin@123";
+            string connectionString = "server=185.213.81.52;database=u317257256_numerologia;uid=u317257256_root;pwd=Admin@123";
 
             return string.IsNullOrEmpty(databaseURL) ? connectionString : BuildConnectionString(databaseURL);
         }
