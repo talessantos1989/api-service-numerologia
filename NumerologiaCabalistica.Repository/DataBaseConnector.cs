@@ -7,7 +7,7 @@ namespace NumerologiaCabalistica.Repository
        
         public static string GetConnectionString()
         {
-            string connectionString = "server=sql725.main-hosting.eu;database=u317257256_numerologia;uid=u317257256_root;pwd=Admin@123;port=3306";
+            string connectionString = "server=sql725.main-hosting.eu;database=u317257256_numerologia;uid=u317257256_root;pwd=Admin@123";
 
             return connectionString;
         }

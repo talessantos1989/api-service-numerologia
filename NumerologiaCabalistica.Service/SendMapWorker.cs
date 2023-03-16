@@ -37,7 +37,9 @@ namespace NumerologiaCabalistica.Service
             {
                 CommandRepository repository = new CommandRepository();
                 List<Customer> customers = repository.GetCustomers();
+
                 _logger.LogInformation($"{customers.Count} customers");
+                
                 foreach (Customer customer in customers)
                 {
                     await APIService.SendAPI(customer);

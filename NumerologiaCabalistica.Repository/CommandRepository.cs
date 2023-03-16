@@ -8,15 +8,14 @@ namespace NumerologiaCabalistica.Repository
         public List<Customer> GetCustomers()
 		{
 			string connectionString = DataBaseConnector.GetConnectionString();
-			Console.WriteLine("bateu aqui");
 			List<Customer> customers = new List<Customer>();
 			DateTime dataDeHoje = DateTime.Now;
 			try
 			{
 				using (MySqlConnection conn = new MySqlConnection(connectionString))
 				{
+					Console.WriteLine(conn.ConnectionString);
 					conn.Open();
-					Console.WriteLine("conectou");
 					Console.WriteLine(conn.ConnectionString);
 					Console.WriteLine(conn.State);
 
