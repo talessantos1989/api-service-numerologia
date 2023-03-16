@@ -49,7 +49,7 @@ namespace NumerologiaCabalistica.Repository
 
 		
 
-		public void SaveSendMap(int id)
+		public void SaveBDSendMap(int id)
 		{
 			try
 			{

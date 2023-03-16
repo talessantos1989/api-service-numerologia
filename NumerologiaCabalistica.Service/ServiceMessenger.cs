@@ -14,9 +14,9 @@ namespace NumerologiaCabalistica.Service
     public static class ServiceMessenger
     {
 
-        public static void SendMail(Customer customer)
+        public static bool SendMail(Customer customer)
         {
-                string firstName = customer.NomeCompleto.Split(' ')[0];
+            string firstName = customer.NomeCompleto.Split(' ')[0];
             using (SmtpClient smtpClient = new SmtpClient())
             {
                 smtpClient.Host = "smtp.hostinger.com";
@@ -64,13 +64,15 @@ namespace NumerologiaCabalistica.Service
 
                 message.Priority = MailPriority.Normal;
                 message.To.Add(customer.Email);
-
                 try
                 {
                     smtpClient.Send(message);
+                    return true;
+
                 }
                 catch (SmtpException ex)
                 {
+                    return false;
                     throw new SmtpException(ex.Message);
                 }
                 catch (Exception ex)

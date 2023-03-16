@@ -44,8 +44,8 @@ namespace NumerologiaCabalistica.Service
                     if (customer.MapFile != null)
                     {
                         _logger.LogInformation(customer.MapFile.ToString());
-                        ServiceMessenger.SendMail(customer);
-                        repository.SaveSendMap(customer.Id);
+                        bool enviado = ServiceMessenger.SendMail(customer);
+                        if (enviado) repository.SaveBDSendMap(customer.Id);
                     }
                 }
             }
