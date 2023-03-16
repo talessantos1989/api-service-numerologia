@@ -16,6 +16,7 @@ namespace NumerologiaCabalistica.Repository
 				using (MySqlConnection conn = new MySqlConnection(connectionString))
 				{
 					conn.Open();
+					Console.WriteLine("conexao sucesso");
 					MySqlCommand command = new MySqlCommand($"SELECT id_cliente, nome, email, telefone, data_compra, data_nascimento, codigo_transacao from clientes where " +
 						$"enviado = @enviado and data_compra < @dataDeHoje", conn);
 
