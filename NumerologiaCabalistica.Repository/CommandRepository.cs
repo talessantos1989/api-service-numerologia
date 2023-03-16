@@ -23,7 +23,8 @@ namespace NumerologiaCabalistica.Repository
 					command.Parameters.AddWithValue("@enviado", 0);
 					command.Parameters.AddWithValue("@dataDeHoje", dataDeHoje);
 					Console.WriteLine(command.CommandText);
-					using (var reader = command.ExecuteReader())
+					Console.WriteLine(dataDeHoje);
+                    using (var reader = command.ExecuteReader())
 					{
 						while (reader.Read())
 						{
