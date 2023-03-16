@@ -10,7 +10,7 @@ namespace NumerologiaCabalistica.Repository
 			string connectionString = DataBaseConnector.GetConnectionString();
 
 			List<Customer> customers = new List<Customer>();
-			DateTime dataDeHoje = DateTime.Now.Date;
+			string dataDeHoje = DateTime.Now.ToShortDateString();
 			try
 			{
 				using (MySqlConnection conn = new MySqlConnection(connectionString))
