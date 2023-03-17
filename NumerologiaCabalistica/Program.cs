@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
 //var databaseURl = Environment.GetEnvironmentVariable("MYSQL_URL");
 
-string a = BuildConnectionString(connectionString);
+string connection = BuildConnectionString(connectionString);
 
 static string BuildConnectionString(string databaseURL)
 {
@@ -33,7 +33,7 @@ static string BuildConnectionString(string databaseURL)
 
 //Adiciona o entity framework na aplicação
 builder.Services.AddDbContext<NumerologiaCabalisticaDbContext>(
-    opts => opts.UseLazyLoadingProxies().UseMySql(a, ServerVersion.AutoDetect(a)));
+    opts => opts.UseLazyLoadingProxies().UseMySql(connection, ServerVersion.AutoDetect(connection)));
 
 // Add services to the container.
 
