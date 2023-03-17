@@ -43,8 +43,7 @@ namespace NumerologiaCabalistica.Repository
 			}
 			catch (MySqlException ex)
 			{
-				Console.WriteLine(ex.Message);
-				Console.WriteLine(ex);
+				throw new Exception(ex.Message);
 			}
 			return customers;
 		}
