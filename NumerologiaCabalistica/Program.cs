@@ -10,7 +10,7 @@ using NumerologiaCabalistica.Service;
 var builder = WebApplication.CreateBuilder(args);
 
 
-var connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
+var connectionString = "mysql://u317257256_root:Primeiradama0811@sql725.main-hosting.eu:3306/u317257256_numerologia";
 //var databaseURl = Environment.GetEnvironmentVariable("MYSQL_URL");
 
 string connection = BuildConnectionString(connectionString);
