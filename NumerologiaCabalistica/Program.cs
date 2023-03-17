@@ -9,15 +9,15 @@ using NumerologiaCabalistica.Service;
 var builder = WebApplication.CreateBuilder(args);
 
 
-var connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
+//var connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
 //var databaseURl = Environment.GetEnvironmentVariable("MYSQL_URL");
 
-var connection =  DataBaseConnector.GetConnectionString(connectionString);
+var connectionString =  DataBaseConnector.GetConnectionString();
 
 
 //Adiciona o entity framework na aplicação
 builder.Services.AddDbContext<NumerologiaCabalisticaDbContext>(
-    opts => opts.UseLazyLoadingProxies().UseMySql(connection, ServerVersion.AutoDetect(connection)));
+    opts => opts.UseLazyLoadingProxies().UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 // Add services to the container.
 
