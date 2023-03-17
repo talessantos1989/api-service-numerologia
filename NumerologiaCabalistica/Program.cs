@@ -12,12 +12,12 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
 //var databaseURl = Environment.GetEnvironmentVariable("MYSQL_URL");
 
-//var connection = string.IsNullOrEmpty(databaseURl) ? connectionString : DataBaseConnector.GetConnectionString(databaseURl);
+var connection =  DataBaseConnector.GetConnectionString(connectionString);
 
 
 //Adiciona o entity framework na aplicação
 builder.Services.AddDbContext<NumerologiaCabalisticaDbContext>(
-    opts => opts.UseLazyLoadingProxies().UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+    opts => opts.UseLazyLoadingProxies().UseMySql(connection, ServerVersion.AutoDetect(connection)));
 
 // Add services to the container.
 
