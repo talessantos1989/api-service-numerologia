@@ -8,11 +8,9 @@ namespace NumerologiaCabalistica.Repository
         public static string GetConnectionString()
         {
             string databaseURL = "mysql://u317257256_root:Primeiradama0811@sql725.main-hosting.eu:3306/u317257256_numerologia";
-            Console.WriteLine(databaseURL);
-            string connectionString = "server=sql725.main-hosting.eu;database=u317257256_numerologia;uid=u317257256_root;pwd=Primeiradama0811";
             
 
-            return string.IsNullOrEmpty(databaseURL) ? connectionString : BuildConnectionString(databaseURL);
+            return BuildConnectionString(databaseURL);
         }
 
         public static string GetConnectionString(string databaseUrl)
