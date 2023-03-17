@@ -26,7 +26,7 @@ static string BuildConnectionString(string databaseURL)
         UserID = userInfo[0],
         Password = userInfo[1],
         Database = databaseUri.LocalPath.TrimStart('/'),
-        SslMode = MySqlSslMode.None 
+        SslMode = MySqlSslMode.VerifyCA 
     };
     return builder.ToString();
 }
