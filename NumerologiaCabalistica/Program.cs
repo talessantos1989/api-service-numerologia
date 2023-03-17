@@ -9,10 +9,10 @@ using NumerologiaCabalistica.Service;
 var builder = WebApplication.CreateBuilder(args);
 
 
-//var connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
+var connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
 //var databaseURl = Environment.GetEnvironmentVariable("MYSQL_URL");
 
-var connectionString =  DataBaseConnector.GetConnectionString();
+//var connectionString =  DataBaseConnector.GetConnectionString();
 
 
 //Adiciona o entity framework na aplicação
