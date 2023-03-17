@@ -36,7 +36,8 @@ namespace NumerologiaCabalistica.Service
             try
             {
                 CommandRepository repository = new CommandRepository();
-                List<Customer> customers = repository.GetCustomers();
+                List<Customer> customers = new List<Customer>();
+                customers = repository.GetCustomers();
 
                 _logger.LogInformation($"{customers.Count} customers");
                 
