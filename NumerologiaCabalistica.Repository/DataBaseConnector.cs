@@ -29,7 +29,7 @@ namespace NumerologiaCabalistica.Repository
                 UserID = userInfo[0],
                 Password = userInfo[1],
                 Database = databaseUri.LocalPath.TrimStart('/'),
-                SslMode = MySqlSslMode.Required
+                SslMode = MySqlSslMode.Disabled
             };
             return builder.ToString();
         }
