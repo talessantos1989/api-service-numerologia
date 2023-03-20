@@ -43,7 +43,10 @@ namespace NumerologiaCabalistica.Service
                 
                 foreach (Customer customer in customers)
                 {
+                    Console.WriteLine("ENTROU NO FOREACH");
                     await APIService.SendAPI(customer);
+                    Console.WriteLine("SAIR DO SEND API");
+
                     if (customer.MapFile != null)
                     {
                         _logger.LogInformation(customer.MapFile.ToString());

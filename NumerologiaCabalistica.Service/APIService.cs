@@ -11,11 +11,10 @@ namespace NumerologiaCabalistica.Service
 
         public async static Task<Customer> SendAPI(Customer customer)
         {
-
+            Console.WriteLine("SEND API INICIADO");
             HttpResponseMessage responseMessage = new HttpResponseMessage();
             try
             {
-
                 using (var client = new HttpClient())
                 {
                     //TODO: arrumar isso aqui
@@ -24,6 +23,7 @@ namespace NumerologiaCabalistica.Service
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
                     HttpResponseMessage response = await client.PostAsJsonAsync(client.BaseAddress.AbsoluteUri, customer);
+                    Console.WriteLine($"RESPONSE =======> {response.Content.ReadAsStringAsync().Result}");
                     if (response != null)
                     {
                         var res = response.Content.ReadAsStringAsync().Result;
