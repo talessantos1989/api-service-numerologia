@@ -36,7 +36,9 @@ public class CalculoCabalisticoController : ControllerBase
     {
 
         Console.WriteLine(parametros.ToString());
+
         MapaModel mapa = new MapaModel();
+
         mapa.DataNascimento = parametros.DataDeNascimento;
 
         var parametroCalculo = _mapper.Map<ParametroCalculoNumerologia>(parametros);
