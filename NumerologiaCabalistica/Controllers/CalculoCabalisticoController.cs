@@ -35,6 +35,7 @@ public class CalculoCabalisticoController : ControllerBase
     public IActionResult RecuperarNumerologiaCabalistica([FromBody] ReadParametroCalculoNumerologiaDTO parametros)
     {
 
+        Console.WriteLine(parametros.ToString());
         MapaModel mapa = new MapaModel();
         mapa.DataNascimento = parametros.DataDeNascimento;
 

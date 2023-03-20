@@ -56,7 +56,6 @@ namespace NumerologiaCabalistica.Service
             {
                 //_logger.LogError($"***************Exception*********** => {ex.Message}");
                 //Console.WriteLine(ex);
-                Console.WriteLine("********************Erro ***************(",ex.InnerException);
             }
         }
     }

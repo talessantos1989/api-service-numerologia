@@ -13,25 +13,33 @@ namespace NumerologiaCabalistica.Service
         {
 
             HttpResponseMessage responseMessage = new HttpResponseMessage();
-
-            using (var client = new HttpClient())
+            try
             {
-                //TODO: arrumar isso aqui
-                client.BaseAddress = new Uri("https://api-service-numerologia-production.up.railway.app/api/CalculoCabalistico");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage response = await client.PostAsJsonAsync(client.BaseAddress.AbsoluteUri, customer);
-                if (response != null)
+                using (var client = new HttpClient())
                 {
-                    var res = response.Content.ReadAsStringAsync().Result;
-                    customer.MapFile = JsonConvert.DeserializeObject<Customer>(res).MapFile;
+                    //TODO: arrumar isso aqui
+                    client.BaseAddress = new Uri("https://api-service-numerologia-production.up.railway.app/api/CalculoCabalistico");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+                    HttpResponseMessage response = await client.PostAsJsonAsync(client.BaseAddress.AbsoluteUri, customer);
+                    if (response != null)
+                    {
+                        var res = response.Content.ReadAsStringAsync().Result;
+                        customer.MapFile = JsonConvert.DeserializeObject<Customer>(res).MapFile;
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"***** Erro ****: {ex}");
+            }
             return customer;
-                
+
+
         }
 
-       
+
     }
 }
