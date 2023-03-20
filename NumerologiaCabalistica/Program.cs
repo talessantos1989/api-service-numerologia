@@ -18,7 +18,9 @@ string connectionString = builder.Configuration.GetConnectionString("Numerologia
 
 //Adiciona o entity framework na aplicação
 builder.Services.AddDbContext<NumerologiaCabalisticaDbContext>(
-    opts => opts.UseLazyLoadingProxies().UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+    opts => opts.UseLazyLoadingProxies().UseMySql(connectionString));
+// ServerVersion.AutoDetect(connectionString)
+
 
 // Add services to the container.
 
