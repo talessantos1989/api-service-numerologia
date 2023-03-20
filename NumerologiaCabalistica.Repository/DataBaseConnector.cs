@@ -8,9 +8,10 @@ namespace NumerologiaCabalistica.Repository
         public static string GetConnectionString()
         {
             string databaseURL = "mysql://root:Ma3GXkBCE2hU5LiCKGgV@containers-us-west-57.railway.app:5993/railway";
-            
+            string connectionString = "server=sql725.main-hosting.eu;port=3306;uid=u317257256_root;pwd=Primeiradama0811;sslmode=disabled";
 
-            return BuildConnectionString(databaseURL);
+            return connectionString;
+            //return BuildConnectionString(databaseURL);
         }
 
         public static string GetConnectionString(string databaseUrl)

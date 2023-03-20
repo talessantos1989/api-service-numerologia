@@ -11,8 +11,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 //var connectionString = "mysql://u317257256_root:Primeiradama0811@sql725.main-hosting.eu:3306/u317257256_numerologia";
-var databaseURl = Environment.GetEnvironmentVariable("MYSQL_URL");
-string connectionString = "server=containers-us-west-57.railway.app;database=railway;uid=root;pwd=Ma3GXkBCE2hU5LiCKGgV;port=5993";
+//var databaseURl = Environment.GetEnvironmentVariable("MYSQL_URL");
+//string connectionString = "server=containers-us-west-57.railway.app;database=railway;uid=root;pwd=Ma3GXkBCE2hU5LiCKGgV;port=5993";
+
+string connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
+
 //Adiciona o entity framework na aplicação
 builder.Services.AddDbContext<NumerologiaCabalisticaDbContext>(
     opts => opts.UseLazyLoadingProxies().UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
