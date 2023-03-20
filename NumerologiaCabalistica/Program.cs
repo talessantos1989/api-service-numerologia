@@ -10,31 +10,15 @@ using NumerologiaCabalistica.Service;
 var builder = WebApplication.CreateBuilder(args);
 
 
-var connectionString = "mysql://u317257256_root:Primeiradama0811@sql725.main-hosting.eu:3306/u317257256_numerologia";
-//var databaseURl = Environment.GetEnvironmentVariable("MYSQL_URL");
+//var connectionString = "mysql://u317257256_root:Primeiradama0811@sql725.main-hosting.eu:3306/u317257256_numerologia";
+var databaseURl = Environment.GetEnvironmentVariable("MYSQL_URL");
 
-string connection = BuildConnectionString(connectionString);
 
-static string BuildConnectionString(string databaseURL)
-{
-    var databaseUri = new Uri(databaseURL);
-    var userInfo = databaseUri.UserInfo.Split(':');
-    var builder = new MySqlConnectionStringBuilder
-    {
-        Server = databaseUri.Host,
-        Port = Convert.ToUInt32(databaseUri.Port),
-        UserID = userInfo[0],
-        Password = userInfo[1],
-        Database = databaseUri.LocalPath.TrimStart('/'),
-        SslMode = MySqlSslMode.Disabled 
-    };
-    return builder.ToString();
-}
 
 
 //Adiciona o entity framework na aplicação
 builder.Services.AddDbContext<NumerologiaCabalisticaDbContext>(
-    opts => opts.UseLazyLoadingProxies().UseMySql(connection, ServerVersion.AutoDetect(connection)));
+    opts => opts.UseLazyLoadingProxies().UseMySql(databaseURl, ServerVersion.AutoDetect(databaseURl)));
 
 // Add services to the container.
 

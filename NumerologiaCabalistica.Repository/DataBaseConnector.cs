@@ -7,7 +7,7 @@ namespace NumerologiaCabalistica.Repository
        
         public static string GetConnectionString()
         {
-            string databaseURL = "mysql://u317257256_root:Primeiradama0811@sql725.main-hosting.eu:3306/u317257256_numerologia";
+            string databaseURL = "mysql://root:Ma3GXkBCE2hU5LiCKGgV@containers-us-west-57.railway.app:5993/railway";
             
 
             return BuildConnectionString(databaseURL);
