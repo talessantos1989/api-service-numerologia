@@ -54,7 +54,7 @@ namespace NumerologiaCabalistica.Service
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Exception => {ex.Message}");
+                _logger.LogError($"***************Exception*********** => {ex.Message}");
                 //Console.WriteLine(ex);
                 Console.WriteLine(ex.InnerException);
             }
