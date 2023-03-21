@@ -34,13 +34,9 @@ namespace NumerologiaCabalistica.Service
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"***** Erro ****: {ex}");
+                Console.WriteLine($"***** Erro ****: {ex.StackTrace}");
             }
             return customer;
-
-
         }
-
-
     }
 }
