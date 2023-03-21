@@ -23,7 +23,7 @@ namespace NumerologiaCabalistica.Service
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
                     HttpResponseMessage response = await client.PostAsJsonAsync(client.BaseAddress.AbsoluteUri, customer);
-                    Console.WriteLine($"RESPONSE =======> {response.Content.ReadAsStringAsync().Result}");
+                    Console.WriteLine($"RESPONSE =======> {response}");
                     if (response != null)
                     {
                         var res = response.Content.ReadAsStringAsync().Result;
