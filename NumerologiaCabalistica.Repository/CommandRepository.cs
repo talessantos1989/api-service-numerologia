@@ -20,7 +20,7 @@ namespace NumerologiaCabalistica.Repository
 					NpgsqlCommand command = new NpgsqlCommand($"SELECT id_cliente, nome, email, telefone, data_compra, data_nascimento, codigo_transacao from clientes where " +
                         $"enviado = @enviado and data_compra < @dataDeHoje", conn);
 
-                    command.Parameters.AddWithValue("@enviado", true);
+                    command.Parameters.AddWithValue("@enviado", false);
                     command.Parameters.AddWithValue("@dataDeHoje", dataDeHoje);
 
 					using (var reader = command.ExecuteReader())
