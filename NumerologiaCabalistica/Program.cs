@@ -4,7 +4,6 @@ using NumerologiaCabalistica.Calculos;
 using NumerologiaCabalistica.Calculos.Interfaces;
 using NumerologiaCabalistica.Data;
 using NumerologiaCabalistica.Service;
-using Pomelo.EntityFrameworkCore.MySql;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 string connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
 Console.WriteLine(connectionString);
+
 //Adiciona o entity framework na aplicação
 builder.Services.AddDbContext<NumerologiaCabalisticaDbContext>(
     opts => opts.UseLazyLoadingProxies().UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));

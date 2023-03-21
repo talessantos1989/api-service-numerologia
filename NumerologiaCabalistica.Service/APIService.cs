@@ -11,7 +11,7 @@ namespace NumerologiaCabalistica.Service
 
         public async static Task<Customer> SendAPI(Customer customer)
         {
-            Console.WriteLine("SEND API INICIADO");
+            Console.WriteLine($"SEND API INICIADO {customer.NomeCompleto}");
             HttpResponseMessage responseMessage = new HttpResponseMessage();
             try
             {
@@ -24,7 +24,7 @@ namespace NumerologiaCabalistica.Service
 
                     HttpResponseMessage response = await client.PostAsJsonAsync(client.BaseAddress.AbsoluteUri, customer);
                     Console.WriteLine($"RESPONSE =======> {response}");
-                    if (response != null)
+                    if (response != null && response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         var res = response.Content.ReadAsStringAsync().Result;
                         Console.WriteLine(String.Format("#### RESULT #### {0}", res)); 
