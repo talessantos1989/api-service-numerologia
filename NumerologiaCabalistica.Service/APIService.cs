@@ -27,7 +27,7 @@ namespace NumerologiaCabalistica.Service
                     if (response != null)
                     {
                         var res = response.Content.ReadAsStringAsync().Result;
-                        Console.WriteLine($"#### RESULT #### {res}"); 
+                        Console.WriteLine(String.Format("#### RESULT #### {0}", res); 
                         customer.MapFile = JsonConvert.DeserializeObject<Customer>(res).MapFile;
                     }
                 }
