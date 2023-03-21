@@ -26,6 +26,7 @@ public class CalculoCabalisticoController : ControllerBase
     /// <param name="context"></param>
     public CalculoCabalisticoController(INumerologiaCabalisticaCalculos numerologiaCabalisticaCalculos, IMapper mapper, NumerologiaCabalisticaDbContext context)
     {
+        Console.WriteLine("========== ENTROU ENTROU ============");
         _numerologiaCabalisticaCalculos = numerologiaCabalisticaCalculos;
         _mapper = mapper;
         _context = context;
@@ -35,7 +36,6 @@ public class CalculoCabalisticoController : ControllerBase
     public IActionResult RecuperarNumerologiaCabalistica([FromBody] ReadParametroCalculoNumerologiaDTO parametros)
     {
 
-        Console.WriteLine("========== ENTROU ENTROU ============");
 
         MapaModel mapa = new MapaModel();
 
