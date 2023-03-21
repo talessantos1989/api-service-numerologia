@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
-using MySql.Data.MySqlClient;
+using Npgsql;
+using System.Data;
 
 namespace NumerologiaCabalistica.Repository
 {
@@ -13,7 +14,33 @@ namespace NumerologiaCabalistica.Repository
 			DateTime dataDeHoje = DateTime.Now;
 			try
 			{
-				using (MySqlConnection conn = new MySqlConnection(connectionString))
+				using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+				{
+					conn.Open();
+					NpgsqlCommand command = new NpgsqlCommand($"SELECT id_cliente, nome, email, telefone, data_compra, data_nascimento, codigo_transacao from clientes where " +
+                        $"enviado = @enviado and data_compra < @dataDeHoje", conn);
+
+                    command.Parameters.AddWithValue("@enviado", true);
+                    command.Parameters.AddWithValue("@dataDeHoje", dataDeHoje);
+
+					using (var reader = command.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+                            customers.Add(new Customer()
+                            {
+                                NomeCompleto = reader.GetString("nome"),
+                                CodigoTransacao = reader.GetString("codigo_transacao"),
+                                DataCompra = reader.GetDateTime("data_compra"),
+                                DataDeNascimento = reader.GetDateTime("data_nascimento"),
+                                Email = reader.GetString("email"),
+                                Telefone = reader.GetString("telefone"),
+                                Id = reader.GetInt32("id_cliente")
+                            });
+                        }
+					}
+                }
+				/*using (MySqlConnection conn = new MySqlConnection(connectionString))
 				{
 					conn.Open();
 					Console.WriteLine("conectou");
@@ -38,11 +65,11 @@ namespace NumerologiaCabalistica.Repository
 							});
 						}
 					}
-				}
+				}*/
 			}
-			catch (MySqlException ex)
+			catch (NpgsqlException ex)
 			{
-				throw new Exception(ex.Message);
+				throw new NpgsqlException(ex.StackTrace);
 			}
 			return customers;
 		}
@@ -53,18 +80,26 @@ namespace NumerologiaCabalistica.Repository
 		{
 			try
 			{
-				using (MySqlConnection conn = new MySqlConnection(DataBaseConnector.GetConnectionString()))
+				//using (MySqlConnection conn = new MySqlConnection(DataBaseConnector.GetConnectionString()))
+				//{
+				//	conn.Open();
+				//	MySqlCommand command = new MySqlCommand($"UPDATE clientes SET enviado = 1 where id_cliente = @id_cliente", conn);
+				//	command.Parameters.AddWithValue("@id_cliente", id);
+				//	command.ExecuteNonQuery();
+
+				//}
+
+				using (NpgsqlConnection conn = new NpgsqlConnection(DataBaseConnector.GetConnectionString()))
 				{
 					conn.Open();
-					MySqlCommand command = new MySqlCommand($"UPDATE clientes SET enviado = 1 where id_cliente = @id_cliente", conn);
+					NpgsqlCommand command = new NpgsqlCommand($"UPDATE clientes SET enviado = 'true' where id_cliente = @id_cliente", conn);
 					command.Parameters.AddWithValue("@id_cliente", id);
 					command.ExecuteNonQuery();
-
 				}
 			}
 			catch (Exception ex)
 			{
-				throw new Exception(ex.Message);
+				throw new Exception(ex.StackTrace);
 			}
 		}
 	}

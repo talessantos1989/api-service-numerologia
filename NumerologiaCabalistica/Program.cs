@@ -13,11 +13,15 @@ var builder = WebApplication.CreateBuilder(args);
 //string connectionString = "server=containers-us-west-57.railway.app;database=railway;uid=root;pwd=Ma3GXkBCE2hU5LiCKGgV;port=5993";
 
 string connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
-Console.WriteLine(connectionString);
 
-//Adiciona o entity framework na aplicação
-builder.Services.AddDbContext<NumerologiaCabalisticaDbContext>(
-    opts => opts.UseLazyLoadingProxies().UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
+//Adiciona o entity framework na aplicação mysql
+/*builder.Services.AddDbContext<NumerologiaCabalisticaDbContext>(
+    opts => opts.UseLazyLoadingProxies().UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));*/
+
+//Adiciona o entity framework na aplicação postgres
+
+builder.Services.AddDbContext<NumerologiaCabalisticaDbContext>(options => options.UseNpgsql(connectionString));
 
 // Add services to the container.
 

@@ -26,7 +26,6 @@ public class CalculoCabalisticoController : ControllerBase
     /// <param name="context"></param>
     public CalculoCabalisticoController(INumerologiaCabalisticaCalculos numerologiaCabalisticaCalculos, IMapper mapper, NumerologiaCabalisticaDbContext context)
     {
-        Console.WriteLine("========== ENTROU ENTROU ============");
         _numerologiaCabalisticaCalculos = numerologiaCabalisticaCalculos;
         _mapper = mapper;
         _context = context;
