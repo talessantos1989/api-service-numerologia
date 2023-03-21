@@ -10,9 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 //var connectionString = "mysql://u317257256_root:Primeiradama0811@sql725.main-hosting.eu:3306/u317257256_numerologia";
 //var databaseURl = Environment.GetEnvironmentVariable("MYSQL_URL");
-//string connectionString = "server=containers-us-west-57.railway.app;database=railway;uid=root;pwd=Ma3GXkBCE2hU5LiCKGgV;port=5993";
+string connectionString = "server=containers-us-west-167.railway.app;port=6491;uid=postgres;pwd=SNuGk1HYtQQK1uhOeefh;database=railway";
 
-string connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
+//string connectionString = builder.Configuration.GetConnectionString("NumerologiaCabalisticaConnection");
 
 
 //Adiciona o entity framework na aplicação mysql
