@@ -12,7 +12,7 @@ namespace NumerologiaCabalistica.Service
         public async static Task<Customer> SendAPI(Customer customer)
         {
             Console.WriteLine($"SEND API INICIADO {customer.NomeCompleto}");
-            HttpResponseMessage responseMessage = new HttpResponseMessage();
+            HttpResponseMessage response = new HttpResponseMessage();
             try
             {
                 using (var client = new HttpClient())
@@ -22,7 +22,7 @@ namespace NumerologiaCabalistica.Service
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-                    HttpResponseMessage response = await client.PostAsJsonAsync(client.BaseAddress.AbsoluteUri, customer);
+                    response = await client.PostAsJsonAsync(client.BaseAddress.AbsoluteUri, customer);
                     Console.WriteLine($"RESPONSE =======> {response}");
                     if (response != null && response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
