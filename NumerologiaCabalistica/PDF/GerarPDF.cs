@@ -32,24 +32,23 @@ namespace NumerologiaCabalistica.PDF
 
                     #region Capa
 
-                    String CAPA = "capa.png";
-                    Console.WriteLine($"DIRETÓRIO CORRENTE {Directory.GetCurrentDirectory()}");
-                    PdfCanvas canvasCapa = new PdfCanvas(pdfDocumento.AddNewPage());
-                    canvasCapa.AddImageFittedIntoRectangle(ImageDataFactory.Create(CAPA), PageSize.A4, false);
+                    //String CAPA = "capa.png";
+                    //PdfCanvas canvasCapa = new PdfCanvas(pdfDocumento.AddNewPage());
+                    //canvasCapa.AddImageFittedIntoRectangle(ImageDataFactory.Create(CAPA), PageSize.A4, false);
                     #endregion
 
                     #region Contracapa
-                    PdfCanvas contracapa = new PdfCanvas(pdfDocumento.AddNewPage()); //adiciono nova pagina
-                    String CONTRACAPA = "contra_capa.png";
-                    contracapa.AddImageFittedIntoRectangle(ImageDataFactory.Create(CONTRACAPA), PageSize.A4, false);
-                    document.Add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+                    //PdfCanvas contracapa = new PdfCanvas(pdfDocumento.AddNewPage()); //adiciono nova pagina
+                    //String CONTRACAPA = "contra_capa.png";
+                    //contracapa.AddImageFittedIntoRectangle(ImageDataFactory.Create(CONTRACAPA), PageSize.A4, false);
+                    //document.Add(new AreaBreak(AreaBreakType.NEXT_PAGE));
 
 
                     #endregion
 
 
                     #region Sumário
-                    document.Add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+                    //document.Add(new AreaBreak(AreaBreakType.NEXT_PAGE));
 
                     PdfCanvas Sumario = new PdfCanvas(pdfDocumento.AddNewPage());
 
