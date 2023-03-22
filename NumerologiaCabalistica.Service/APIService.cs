@@ -23,11 +23,9 @@ namespace NumerologiaCabalistica.Service
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
                     response = await client.PostAsJsonAsync(client.BaseAddress.AbsoluteUri, customer);
-                    Console.WriteLine($"RESPONSE =======> {response}");
                     if (response != null && response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         var res = response.Content.ReadAsStringAsync().Result;
-                        Console.WriteLine(String.Format("#### RESULT #### {0}", res)); 
                         customer.MapFile = JsonConvert.DeserializeObject<Customer>(res).MapFile;
                     }
                 }
