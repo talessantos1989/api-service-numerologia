@@ -39,4 +39,8 @@
     <ProjectReference Include="..\NumerologiaCabalistica.Service\NumerologiaCabalistica.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="capa\" />
+  </ItemGroup>
+
 </Project>

@@ -32,14 +32,14 @@ namespace NumerologiaCabalistica.PDF
 
                     #region Capa
 
-                    String CAPA = "./capa/capa.png";
+                    String CAPA = "/capa.png";
                     PdfCanvas canvasCapa = new PdfCanvas(pdfDocumento.AddNewPage());
                     canvasCapa.AddImageFittedIntoRectangle(ImageDataFactory.Create(CAPA), PageSize.A4, false);
                     #endregion
 
                     #region Contracapa
                     PdfCanvas contracapa = new PdfCanvas(pdfDocumento.AddNewPage()); //adiciono nova pagina
-                    String CONTRACAPA = "./capa/contra_capa.png";
+                    String CONTRACAPA = "/contra_capa.png";
                     contracapa.AddImageFittedIntoRectangle(ImageDataFactory.Create(CONTRACAPA), PageSize.A4, false);
                     document.Add(new AreaBreak(AreaBreakType.NEXT_PAGE));
 
