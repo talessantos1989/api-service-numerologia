@@ -11,7 +11,7 @@ namespace NumerologiaCabalistica.Repository
 		{
 			string connectionString = DataBaseConnector.GetConnectionString();
 			List<Customer> customers = new List<Customer>();
-			DateTime dataDeHoje = DateTime.Now;
+			DateTime dataDeHoje = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
 			try
 			{
 				using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
